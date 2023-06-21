@@ -1,19 +1,19 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import StyledHeaderLogin from "./StyledHeaderLogin";
-import StyledMainLogin from "./StyledMainLogin";
-import StyledDivLoginContent from "./StyledDivLoginContent";
-import StyledButtonLogin from "./StyledButtonLogin";
-import StyledButtonSignUp from "./StyledButtonSignUp";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import StyledIcon from "./StyledIcon";
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod";
 import { api } from "../../services/Api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "./User/Context";
 import { StyledToast } from "../../styles/StyledToast";
+import StyledButtonLogin from "../../components/loginComponents/StyledButtonLogin";
+import StyledButtonSignUp from "../../components/loginComponents/StyledButtonSignUp";
+import StyledIcon from "../../components/loginComponents/StyledIcon";
+import StyledHeaderLogin from "../../components/loginComponents/StyledHeaderLogin";
+import StyledMainLogin from "../../components/loginComponents/StyledMainLogin";
+import StyledDivLoginContent from "../../components/loginComponents/StyledDivLoginContent";
 
 const schema = z.object({
   email: z

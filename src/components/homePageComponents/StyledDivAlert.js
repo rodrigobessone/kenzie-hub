@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Theme from "../../../styles/Theme";
+import Theme from "../../styles/Theme";
 
 const StyledDivAlert = styled.div`
   height: 100%;

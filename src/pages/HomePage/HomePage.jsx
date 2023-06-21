@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import StyledHeaderHome from "./components/StyledheaderHome";
-import StyledDivHome from "./components/StyledDivHome";
-import StyledDivAlert from "./components/StyledDivAlert";
-import StyledMainHome from "./components/StyledHomeMain";
 import StyledLink from "../../styles/StyledLink";
 import { UserContext } from "../Login/User/Context";
 import { StyledToast } from "../../styles/StyledToast";
+import StyledDivHome from "../../components/homePageComponents/StyledDivHome";
+import StyledHomeMain from "../../components/homePageComponents/StyledHomeMain";
+import StyledHeaderHome from "../../components/homePageComponents/StyledheaderHome";
+import StyledDivAlert from "../../components/homePageComponents/StyledDivAlert";
+
 
 function HomePage() {
   const { user, updateData } = useContext(UserContext);
@@ -18,7 +19,7 @@ function HomePage() {
   };
 
   return (
-    <StyledMainHome>
+    <StyledHomeMain>
       <StyledHeaderHome>
         <img src="/Logo.svg" alt="logo" />
         <StyledLink to={"/"} onClick={handleLogout}>
@@ -40,7 +41,7 @@ function HomePage() {
           </p>
         </div>
       </StyledDivAlert>
-    </StyledMainHome>
+    </StyledHomeMain>
   );
 }
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import Theme from "../../../styles/Theme";
+import Theme from "../../styles/Theme";
+
 
 const StyledDivContent = styled.div`
   width: 23.125rem;

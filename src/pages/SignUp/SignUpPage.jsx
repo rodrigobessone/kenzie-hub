@@ -2,19 +2,18 @@ import { zodResolver } from "@hookform/resolvers/zod/dist/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import StyledDivContent from "./components/StyledDivContent";
-import StyledMain from "./components/StyledMain";
-import StyledHeader from "./components/StyledHeader";
-import StyledSelect from "./components/StyledSelect";
-import StyledButton from "./components/StyledButton";
 import StyledLink from "../../styles/StyledLink";
 import { api } from "../../services/Api";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { StyledToast } from "../../styles/StyledToast";
+import StyledDivContent from "../../components/signUpComponents/StyledDivContent";
+import StyledMain from "../../components/signUpComponents/StyledMain";
+import StyledHeader from "../../components/signUpComponents/StyledHeader";
+import StyledSelect from "../../components/signUpComponents/StyledSelect";
+import StyledButton from "../../components/signUpComponents/StyledButton";
 
-const schema = z
-  .object({
+const schema = z.object({
     name: z.string().nonempty("O nome é obrigatório."),
     email: z
       .string()
@@ -55,7 +54,6 @@ function SignUpPage() {
   const onSubmit = async (data) => {
     try {
       const response = await api.post("/users", data);
-      console.log(response.data);
       toast.success("Conta criada com sucesso", {
         autoClose: 700,
       });
@@ -155,7 +153,7 @@ function SignUpPage() {
               </option>
               <option value="Quarto módulo (Backend Avançado)">
                 Quarto módulo (Backend Avançado)
-              </option>
+              </option> 
             </select>
           </StyledSelect>
           <StyledButton type="submit">Cadastrar</StyledButton>

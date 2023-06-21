@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Theme from "../../../styles/Theme";
+import Theme from "../../styles/Theme";
 
 const StyledDivHome = styled.div`
   height: 7.375rem;
