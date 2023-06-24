@@ -4,7 +4,7 @@ import api from "../services/Api";
 import { toast } from "react-toastify";
 import { UserContext } from "../../providers/UserContext/UserContext";
 
-function RoutesComponent() {
+function ProtectedRoute () {
   const { user, updateData } = useContext(UserContext);
   const navigate = useNavigate();
   const token = localStorage.getItem("@TOKEN");
@@ -40,6 +40,6 @@ function RoutesComponent() {
   }
 
   return <Outlet />;
-}
+};
 
-export default RoutesComponent;
+export default ProtectedRoute;
