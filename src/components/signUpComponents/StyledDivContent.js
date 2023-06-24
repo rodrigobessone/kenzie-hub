@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Theme from "../../styles/Theme";
 
-
 const StyledDivContent = styled.div`
   width: 23.125rem;
   display: flex;
@@ -29,6 +28,10 @@ const StyledDivContent = styled.div`
     color: ${Theme.colors.gray1};
     margin-top: 1.1875rem;
     margin-bottom: -0.2rem;
+  }
+  p {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
   }
 
   div {

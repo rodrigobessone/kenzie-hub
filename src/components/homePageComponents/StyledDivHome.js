@@ -5,12 +5,13 @@ const StyledDivHome = styled.div`
   height: 7.375rem;
   width: 100%;
   display: flex;
-
+  border-top: 1px solid ${Theme.colors.gray3};
+  border-bottom: 1px solid ${Theme.colors.gray3};
   justify-content: center;
 
   div {
     display: flex;
-    width: 50rem;
+    width: 48rem;
     align-items: center;
     justify-content: space-between;
   }
@@ -27,6 +28,14 @@ const StyledDivHome = styled.div`
     font-family: "Inter";
     font-size: 12px;
     font-weight: 600;
+  }
+  @media (max-width: 49rem) {
+    padding: 1.25rem;
+  }
+  @media (max-width: 32rem) {
+    div {
+      flex-wrap: wrap;
+    }
   }
 `;
 export default StyledDivHome;

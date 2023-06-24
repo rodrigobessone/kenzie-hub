@@ -3,7 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import StyledLink from "../../styles/StyledLink";
-import { api } from "../../services/Api";
+import api from "../../services/Api";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { StyledToast } from "../../styles/StyledToast";
@@ -13,7 +13,8 @@ import StyledHeader from "../../components/signUpComponents/StyledHeader";
 import StyledSelect from "../../components/signUpComponents/StyledSelect";
 import StyledButton from "../../components/signUpComponents/StyledButton";
 
-const schema = z.object({
+const schema = z
+  .object({
     name: z.string().nonempty("O nome é obrigatório."),
     email: z
       .string()
@@ -153,7 +154,7 @@ function SignUpPage() {
               </option>
               <option value="Quarto módulo (Backend Avançado)">
                 Quarto módulo (Backend Avançado)
-              </option> 
+              </option>
             </select>
           </StyledSelect>
           <StyledButton type="submit">Cadastrar</StyledButton>

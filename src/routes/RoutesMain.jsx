@@ -3,13 +3,20 @@ import React, { useState } from "react";
 import LoginPage from "../pages/Login/LoginPage";
 import SignUpPage from "../pages/SignUp/SignUpPage";
 import HomePage from "../pages/HomePage/HomePage";
+import RoutesComponent from "./routesComponent";
+import PublicRoute from "./PublicRoute";
+import { ModalProvider } from "../../providers/ModalContext/ModalContext";
 
 function RoutesMain() {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/signup" element={<SignUpPage />} />
-      <Route path="/home" element={<HomePage />} />
+      <Route element={<PublicRoute />}>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+      </Route>
+      <Route element={<RoutesComponent />}>
+        <Route index path="/home" element={<HomePage />} />
+      </Route>
     </Routes>
   );
 }

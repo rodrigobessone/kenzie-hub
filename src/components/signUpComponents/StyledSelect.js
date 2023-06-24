@@ -9,6 +9,10 @@ const StyledSelect = styled.div`
   border-radius: 0.25rem;
   margin-bottom: 1.3125rem;
 
+  &:hover, &:focus{
+  border: 1px solid ${Theme.colors.gray0};
+
+}
   select {
     width: 96%;
     height: 100%;

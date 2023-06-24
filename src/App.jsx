@@ -1,7 +1,6 @@
 import React from "react";
-
 import RoutesMain from "./routes/RoutesMain";
-import { Context } from "./pages/Login/User/Context";
+import { Context } from "../providers/UserContext/UserContext";
 
 function App() {
   return (

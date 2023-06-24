@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Theme from "../../styles/Theme";
 
 const StyledDivLoginContent = styled.div`
-  width: 23.0625rem;
+  width: 95%;
+  max-width: 23.0625rem;
   top: 30px;
   border-radius: 4px;
   padding: 42px 22px 42px 22px;
@@ -22,7 +23,7 @@ const StyledDivLoginContent = styled.div`
     margin-bottom: -0.25rem;
   }
 
-  div:nth-child(2){
+  div:nth-child(2) {
     position: relative;
   }
 
@@ -36,7 +37,7 @@ const StyledDivLoginContent = styled.div`
     margin-bottom: 1.375rem;
     font-family: "Inter";
     font-weight: 400;
-    font-size: .875rem;
+    font-size: 0.875rem;
     color: ${Theme.colors.gray0};
   }
 
@@ -50,7 +51,6 @@ const StyledDivLoginContent = styled.div`
     font-family: "Inter";
     font-size: 1.015rem;
     padding-left: 1rem;
-
   }
 
   h3 {
@@ -63,7 +63,12 @@ const StyledDivLoginContent = styled.div`
     margin-bottom: 1.375rem;
   }
 
-  
+  @media (max-width: 400px) {
+    padding: 1.25rem;
+
+    div {
+      flex-wrap: wrap;
+    }
   }
 `;
 export default StyledDivLoginContent;
