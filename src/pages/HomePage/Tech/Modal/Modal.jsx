@@ -45,6 +45,7 @@ function Modal() {
             },
           }
         );
+        setModalState(false);
         setIsLoading(false);
         toast.success("Status atualizado com sucesso!", {
           autoClose: 600,
@@ -55,6 +56,7 @@ function Modal() {
             Authorization: `Bearer ${token}`,
           },
         });
+        setModalState(false);
         setIsLoading(false);
         toast.success("Tecnlogia cadastrada com sucesso!", {
           autoClose: 900,
@@ -113,7 +115,7 @@ function Modal() {
             ? "Cadastrar Tecnologia"
             : "Tecnologia detalhes"}
         </Title3>
-        <img src="public/X.svg" alt="X" onClick={() => setModalState(false)} />
+        <img src="/X.svg" alt="close-modal" onClick={() => setModalState(false)} />
       </div>
       <FormProvider {...methods}>
         <StyledForm onSubmit={handleSubmit(onSubmit)}>
