@@ -40,6 +40,11 @@ const StyledForm = styled.form`
     margin-bottom: 1.375rem;
     cursor: pointer;
   }
+  p {
+    color: ${Theme.colors.gray1};
+    margin-top: 0.375rem;
+    font-size: 0.75rem;
+  }
 `;
 
 export default StyledForm;

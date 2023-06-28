@@ -4,9 +4,9 @@ import StyledTitle from "../TechStyles/StyledTitle";
 import { StyledPlusIcon } from "../TechStyles/StyledPlusIcon";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import TechList from "../TechList/TechList";
-import { ModalContext } from "../../../../../providers/ModalContext/ModalContext";
+import { ModalContext } from "../../../../providers/ModalContext/ModalContext";
 import Modal from "../Modal/Modal";
-import { UserContext } from "../../../../../providers/UserContext/UserContext";
+import { UserContext } from "../../../../providers/UserContext/UserContext";
 import BackDropModal from "../Modal/BackDropModal";
 import Loading from "../Modal/StyledSpinner";
 

@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import api from "../services/Api";
 import { toast } from "react-toastify";
-import { UserContext } from "../../providers/UserContext/UserContext";
+import { UserContext } from "../providers/UserContext/UserContext";
 
-function ProtectedRoute () {
+function ProtectedRoute() {
   const { user, updateData } = useContext(UserContext);
   const navigate = useNavigate();
   const token = localStorage.getItem("@TOKEN");
@@ -40,6 +40,6 @@ function ProtectedRoute () {
   }
 
   return <Outlet />;
-};
+}
 
 export default ProtectedRoute;

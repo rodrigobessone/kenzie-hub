@@ -1,63 +1,38 @@
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod";
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import StyledLink from "../../styles/StyledLink";
 import api from "../../services/Api";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { StyledToast } from "../../styles/StyledToast";
 import StyledDivContent from "../../components/signUpComponents/StyledDivContent";
 import StyledMain from "../../components/signUpComponents/StyledMain";
 import StyledHeader from "../../components/signUpComponents/StyledHeader";
 import StyledSelect from "../../components/signUpComponents/StyledSelect";
 import StyledButton from "../../components/signUpComponents/StyledButton";
+import { UserContext } from "../../providers/UserContext/UserContext";
+import { schema } from "../../schema/schema";
 
-const schema = z
-  .object({
-    name: z.string().nonempty("O nome é obrigatório."),
-    email: z
-      .string()
-      .email("Insira um email válido.")
-      .nonempty("O email é obrigatório."),
-    password: z
-      .string()
-      .min(8, "A senha deve ter pelo menos 8 caracteres")
-      .regex(/[A-Z]/, "A senha deve conter pelo menos uma letra maiúscula")
-      .regex(/[a-z]/, "A senha deve conter pelo menos uma letra minúscula")
-      .regex(/\d/, "A senha deve conter pelo menos um número")
-      .regex(
-        /[@$!%*?&[#{}()[\]]/,
-        "A senha deve conter pelo menos um caractere especial"
-      ),
-    confirm: z.string().min(1, "Confirmar a senha é obrigatório"),
-    bio: z.string().nonempty("Campo Obrigatório"),
-    contact: z.string().nonempty("Campo obrigatório"),
-    course_module: z.string().nonempty("Campo obrigatório"),
-  })
-  .refine(({ password, confirm }) => confirm === password, {
-    message: "As senhas não coincidem",
-    path: ["confirm"],
-  });
 function SignUpPage() {
   const methods = useForm({
     resolver: zodResolver(schema),
   });
-
+  const { updateData } = useContext(UserContext);
   const navigate = useNavigate("/");
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = methods;
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (formData) => {
     try {
-      const response = await api.post("/users", data);
+      const { data } = await api.post("/users", formData);
       toast.success("Conta criada com sucesso", {
         autoClose: 700,
       });
+      updateData(data);
       setTimeout(() => {
         navigate("/");
       }, 2000);

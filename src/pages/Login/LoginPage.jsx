@@ -13,21 +13,14 @@ import StyledIcon from "../../components/loginComponents/StyledIcon";
 import StyledHeaderLogin from "../../components/loginComponents/StyledHeaderLogin";
 import StyledMainLogin from "../../components/loginComponents/StyledMainLogin";
 import StyledDivLoginContent from "../../components/loginComponents/StyledDivLoginContent";
-import { UserContext } from "../../../providers/UserContext/UserContext";
-import { ModalContext } from "../../../providers/ModalContext/ModalContext";
+import { UserContext } from "../../providers/UserContext/UserContext";
+import { ModalContext } from "../../providers/ModalContext/ModalContext";
 import Loading from "../HomePage/Tech/Modal/StyledSpinner";
-
-const schema = z.object({
-  email: z
-    .string()
-    .email("Insira um email válido.")
-    .nonempty("O email é obrigatório."),
-  password: z.string().nonempty("Campo obrigatório"),
-});
+import { loginSchema } from "../../schema/schema";
 
 function LoginPage() {
   const methods = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(loginSchema),
   });
   const { updateData } = useContext(UserContext);
   const { setIsLoading, isLoading } = useContext(ModalContext);
@@ -37,7 +30,6 @@ function LoginPage() {
     handleSubmit,
     formState: { errors },
   } = methods;
-
   const onSubmit = async (data) => {
     setIsLoading(true);
     try {

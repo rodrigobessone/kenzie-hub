@@ -4,7 +4,7 @@ import { StyledToast } from "../../styles/StyledToast";
 import StyledDivHome from "../../components/homePageComponents/StyledDivHome";
 import StyledHomeMain from "../../components/homePageComponents/StyledHomeMain";
 import StyledHeaderHome from "../../components/homePageComponents/StyledheaderHome";
-import { UserContext } from "../../../providers/UserContext/UserContext";
+import { UserContext } from "../../providers/UserContext/UserContext";
 import TechSection from "./Tech/TechSection/TechSection";
 
 function HomePage() {

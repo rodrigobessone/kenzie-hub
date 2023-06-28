@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from "react";
 import StyledTitle from "../TechStyles/StyledTitle";
 import StyledList from "../TechStyles/StyledList";
 import StyledItem from "../TechStyles/StyledItem";
-import { ModalContext } from "../../../../../providers/ModalContext/ModalContext";
-import { UserContext } from "../../../../../providers/UserContext/UserContext";
-import { TechContext } from "../../../../../providers/TechContext/TechContext";
+import { ModalContext } from "../../../../providers/ModalContext/ModalContext";
+import { UserContext } from "../../../../providers/UserContext/UserContext";
+import { TechContext } from "../../../../providers/TechContext/TechContext";
 
 function TechList() {
   const { setModalState, setModalType } = useContext(ModalContext);
