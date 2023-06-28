@@ -35,8 +35,10 @@ const loginSchema = z.object({
   password: z.string().nonempty("Campo obrigatório"),
 });
 
-const newTechSchema = z.object({
-  title: z.string().nonempty("O titulo é obrigatório."),
+const createModalSchema = z.object({
+  title: z.string().nonempty("O título é obrigatório"),
+  status: z.string().nonempty("Selecione o status"),
 });
 
-export { schema, loginSchema, newTechSchema };
+
+export { schema, loginSchema, createModalSchema };

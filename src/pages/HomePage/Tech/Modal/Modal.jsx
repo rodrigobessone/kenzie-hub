@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import StyledModal from "../TechStyles/StyledModal";
 import { ModalContext } from "../../../../providers/ModalContext/ModalContext";
 import {
@@ -14,22 +14,18 @@ import { UserContext } from "../../../../providers/UserContext/UserContext";
 import StyledWrapper from "../TechStyles/StyledWrapper";
 import { TechContext } from "../../../../providers/TechContext/TechContext";
 import { toast } from "react-toastify";
-import { zodResolver } from "@hookform/resolvers/zod/dist/zod";
-import { newTechSchema } from "../../../../schema/schema";
+import ModalInput from "./ModalInput";
 
 function Modal() {
   const { userTech, setTech, onDeleteTech } = useContext(TechContext);
   const { updateData } = useContext(UserContext);
   const { modalType, setModalState, setIsLoading } = useContext(ModalContext);
 
-  const methods = useForm({
-    resolver: zodResolver(newTechSchema),
-  });
+  const methods = useForm();
 
   const {
     handleSubmit,
-    register,
-    formState: { errors },
+    register
   } = methods;
 
   async function onSubmit(formData) {
@@ -97,19 +93,7 @@ function Modal() {
       </div>
       <FormProvider {...methods}>
         <StyledForm onSubmit={handleSubmit(onSubmit)}>
-          <LabelModal>Nome</LabelModal>
-          <input
-            type="text"
-            placeholder={
-              modalType === "createModal"
-                ? "Digite o nome da tecnologia"
-                : `${userTech.title}`
-            }
-            name="title"
-            disabled={modalType != "createModal"}
-            {...register("title")}
-          />
-          {errors.title && <p>{errors.title.message}</p>}
+          <ModalInput modalType={modalType} userTech={userTech}/>
           <LabelModal>Selecionar status</LabelModal>
           <StyledSelect>
             <select
@@ -121,26 +105,12 @@ function Modal() {
                   status: e.target.value,
                 }))
               }
+              defaultValue={userTech.status}
               {...register("status")}
             >
-              <option
-                value="Iniciante"
-                selected={userTech.status === "Iniciante"}
-              >
-                Iniciante
-              </option>
-              <option
-                value="Intermediário"
-                selected={userTech.status === "Intermediário"}
-              >
-                Intermediário
-              </option>
-              <option
-                value="Avançado"
-                selected={userTech.status === "Avançado"}
-              >
-                Avançado
-              </option>
+              <option defaultValue="Iniciante">Iniciante</option>
+              <option defaultValue="Intermediário">Intermediário</option>
+              <option defaultValue="Avançado">Avançado</option>
             </select>
           </StyledSelect>
           {modalType === "createModal" ? (
